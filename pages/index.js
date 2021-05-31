@@ -2,6 +2,9 @@ import { getSession } from 'next-auth/client';
 import Head from 'next/head'
 
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import Feed from '../components/Feed';
+import Widgets from '../components/Widgets';
 import Login from '../components/Login';
 
 export default function Home({ session }) {
@@ -9,14 +12,16 @@ export default function Home({ session }) {
     return <Login />
   }
   return (
-    <div>
+    <div className="h-screen bg-gray-100 overflow-hidden">
       <Head>
         <title>Facebook Clone</title>
       </Head>
 
       <Header />
-      <main>
-        
+      <main className="flex">
+        <Sidebar />
+        <Feed />
+        <Widgets />
       </main>
     </div>
   )
